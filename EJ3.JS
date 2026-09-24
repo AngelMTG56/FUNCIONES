@@ -1,32 +1,19 @@
-// Enunciado
 // Leer cuántos días se van a registrar. Luego leer la temperatura en grados centígrados de cada
 // día y mostrar su equivalente en Kelvin y en Fahrenheit. Al final, mostrar la temperatura
 // promedio en °C.
-// Fórmulas: K = C + 273.15 y F = C * 9 / 5 + 32.
 
-const cantidadDias = parseInt(prompt("Ingrese la cantidad de días a registrar:"));
-let temperaturasC = [];
+let dias = parseInt(prompt("cuántos días?:"));
 let sumaTemperaturas = 0;
 
-for (let i = 0; i < cantidadDias; i++) {
-    temperaturasC[i] = parseFloat(prompt(`Ingrese la temperatura en °C del día ${i + 1}:`));
-    sumaTemperaturas += temperaturasC[i];
+for (let i = 1; i <= dias; i++) {
+    let celsius = parseFloat(prompt(`Temperatura día ${i} (°C):`));
+    let kelvin = celsius + 273.15;
+    let fahrenheit = (celsius * 9 / 5) + 32;
+    
+    sumaTemperaturas += celsius;
+    
+    console.log(`Día ${i}: ${celsius} °C = ${kelvin} K = ${fahrenheit} °F`);
 }
 
-function convertirAKelvin(celsius) {
-    return celsius + 273.15;
-}
-
-function convertirAFahrenheit(celsius) {
-    return celsius * 9 / 5 + 32;
-}
-
-for (let i = 0; i < temperaturasC.length; i++) {
-    const kelvin = convertirAKelvin(temperaturasC[i]);
-    const fahrenheit = convertirAFahrenheit(temperaturasC[i]);
-    console.log(`Día ${i + 1}: ${temperaturasC[i]} °C = ${kelvin.toFixed(2)} K = ${fahrenheit.toFixed(2)} °F`);
-}
-
-const promedioTemperaturas = sumaTemperaturas / cantidadDias;
-console.log(`La temperatura promedio en °C es: ${promedioTemperaturas.toFixed(2)} °C`);
-
+let promedio = sumaTemperaturas / dias;
+console.log(`Promedio: ${promedio} °C`);
