@@ -1,26 +1,19 @@
-// Enunciado
-// Un centro de verificación quiere saber el promedio de puntos contaminantes de los primeros 25
-// automóviles que lleguen. También quiere saber los puntos del auto que menos contaminó y del
-// que más contaminó.
-
-//Un centro de verificación quiere saber el promedio de puntos contaminantes de los primeros 25
-//automóviles que lleguen. También quiere saber los puntos del auto que menos contaminó y del
-//que más contaminó.
+// Un centro de verificación quiere saber el promedio de puntos contaminantes de los primeros 25 automóviles que lleguen. También quiere saber los puntos del auto que menos contaminó y del que más contaminó.
 
 function obtenerMenor(a, b) {
     if (a < b) {
         return a;
+    } else {
+        return b;
     }
-
-    return b;
 }
 
 function obtenerMayor(a, b) {
     if (a > b) {
         return a;
+    } else {
+        return b;
     }
-
-    return b;
 }
 
 function calcularPromedio(suma, cantidad) {
@@ -28,15 +21,15 @@ function calcularPromedio(suma, cantidad) {
 }
 
 let suma = 0;
-let menor = 0;
-let mayor = 0;
+let menor;
+let mayor;
 
 for (let i = 1; i <= 25; i++) {
-    let puntos = Number(prompt("Puntos auto " + i + ":"));
+    let puntos = parseFloat(prompt("Puntos auto " + i + ":"));
 
     suma = suma + puntos;
 
-    if (i === 1) {
+    if (i == 1) {
         menor = puntos;
         mayor = puntos;
     } else {
